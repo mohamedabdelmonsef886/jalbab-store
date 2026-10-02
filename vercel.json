@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "python3 manage.py collectstatic --noinput --clear && python3 manage.py migrate --noinput",
+  "buildCommand": "python3 manage.py collectstatic --noinput --clear",
   "builds": [
     {
       "src": "jalbab/wsgi.py",
