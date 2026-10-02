@@ -58,7 +58,7 @@ INSTALLED_APPS = [
 # ==========================================
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -68,8 +68,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if not DEBUG:
-    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+# if not DEBUG:
+#     MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 
 ROOT_URLCONF = 'jalbab.urls'
@@ -174,7 +174,8 @@ else:
             'BACKEND': 'storages.backends.cloudinary.CloudinaryStorage',
         },
         'staticfiles': {
-            'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+            # 'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
         },
     }
 
