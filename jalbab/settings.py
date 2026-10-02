@@ -155,29 +155,40 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': config('CLOUDINARY_API_SECRET', default=''),
 }
 
+# ==========================================
+# Storages
+# ==========================================
+STORAGES = {
+    'default': {
+        'BACKEND': 'storages.backends.cloudinary.CloudinaryStorage',
+    },
+    'staticfiles': {
+        'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+    },
+}
 
 # ==========================================
 # Storages
 # ==========================================
-if DEBUG:
-    STORAGES = {
-        'default': {
-            'BACKEND': 'django.core.files.storage.FileSystemStorage',
-        },
-        'staticfiles': {
-            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
-        },
-    }
-else:
-    STORAGES = {
-        'default': {
-            'BACKEND': 'storages.backends.cloudinary.CloudinaryStorage',
-        },
-        'staticfiles': {
-            'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
-            # 'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
-        },
-    }
+# if DEBUG:
+#     STORAGES = {
+#         'default': {
+#             'BACKEND': 'django.core.files.storage.FileSystemStorage',
+#         },
+#         'staticfiles': {
+#             'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+#         },
+#     }
+# else:
+#     STORAGES = {
+#         'default': {
+#             'BACKEND': 'storages.backends.cloudinary.CloudinaryStorage',
+#         },
+#         'staticfiles': {
+#             'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
+#             # 'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+#         },
+#     }
 
 
 # ==========================================
