@@ -3,23 +3,21 @@
   "installCommand": "uv pip install --system -r requirements.txt",
   "buildCommand": "python3 manage.py collectstatic --noinput --clear && python3 manage.py migrate --noinput",
   "outputDirectory": "staticfiles",
-  "builds": [
-    {
-      "src": "jalbab/wsgi.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb"
-      }
+  "functions": {
+    "jalbab/wsgi.py": {
+      "runtime": "python3.12",
+      "maxDuration": 30,
+      "memory": 1024
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "dest": "/staticfiles/$1"
+      "source": "/static/(.*)",
+      "destination": "/staticfiles/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "jalbab/wsgi.py"
+      "source": "/(.*)",
+      "destination": "/jalbab/wsgi.py"
     }
   ]
 }
