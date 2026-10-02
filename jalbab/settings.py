@@ -160,7 +160,7 @@ CLOUDINARY_STORAGE = {
 # ==========================================
 STORAGES = {
     'default': {
-        'BACKEND': 'storages.backends.cloudinary.CloudinaryStorage',
+        'BACKEND': 'cloudinary_storage.storage.MediaCloudinaryStorage',
     },
     'staticfiles': {
         'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage',
