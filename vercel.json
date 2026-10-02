@@ -1,18 +1,12 @@
 {
   "version": 2,
+  "buildCommand": "python3 manage.py collectstatic --noinput --clear && python3 manage.py migrate --noinput",
   "builds": [
     {
       "src": "jalbab/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb"
-      }
-    },
-    {
-      "src": "build_files.sh",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "staticfiles"
       }
     }
   ],
