@@ -9,13 +9,13 @@ urlpatterns = [
     path('products/', views.product_list, name='product_list'),
     # re_path يدعم Unicode (الحروف العربية في الـ slug)
     re_path(
-        r'^products/(?P<category_slug>.+)/$',
+        r'^products/(?P<category_slug>[-\w]+)/$',
         views.product_list,
         name='product_list_by_category'
     ),
 
     re_path(
-        r'^product/(?P<slug>.+)/$',
+        r'^product/(?P<slug>[-\w]+)/$',
         views.product_detail,
         name='product_detail'
     ),
